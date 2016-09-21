@@ -49,6 +49,13 @@ def handle(_name, cfg, cloud, log, args):
     change_pwauth = False
     plist = None
 
+    # use the admin_pass available in the ConfigDrive
+    if not password:
+        metadata = cloud.datasource.metadata
+        if metadata and 'admin_pass' in metadata:
+            password = metadata['admin_pass']
+            expire = False
+
     if 'chpasswd' in cfg:
         chfg = cfg['chpasswd']
         plist = util.get_cfg_option_str(chfg, 'list', plist)
