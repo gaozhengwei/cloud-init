@@ -80,6 +80,7 @@ class Distro(distros.Distro):
                 'BOOTPROTO': info.get('bootproto'),
                 'GATEWAY': info.get('gateway'),
                 'BROADCAST': info.get('broadcast'),
+                'MTU': info.get('mtu', 1500),
                 'MACADDR': info.get('hwaddress'),
                 'ONBOOT': _make_sysconfig_bool(info.get('auto')),
             }

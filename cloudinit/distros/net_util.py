@@ -57,6 +57,7 @@
 #         address 10.0.0.1
 #         netmask 255.255.252.0
 #         broadcast 10.0.0.255
+#         mtu 1500
 #         gateway 10.0.0.2
 #         dns-nameservers 98.0.0.1 98.0.0.2
 #
@@ -72,6 +73,7 @@
 #             "98.0.0.2"
 #         ],
 #         "broadcast": "10.0.0.255",
+#         "mtu": 1500,
 #         "netmask": "255.255.252.0",
 #         "bootproto": "static",
 #         "address": "10.0.0.1",
@@ -129,7 +131,7 @@ def translate_network(settings):
             if proto_type in ['dhcp', 'static']:
                 iface_info['bootproto'] = proto_type
         # These can just be copied over
-        for k in ['netmask', 'address', 'gateway', 'broadcast']:
+        for k in ['netmask', 'address', 'gateway', 'broadcast', 'mtu']:
             if k in info:
                 val = info[k].strip().lower()
                 if val:
