@@ -332,6 +332,8 @@ class Distro(object):
         LOG.debug("Attempting to run bring up interface %s using command %s",
                   device_name, cmd)
         try:
+            # Clean interface's old IP, which boots from snapshot image.
+            util.subp(['ifdown', device_name])
             (_out, err) = util.subp(cmd)
             if len(err):
                 LOG.warn("Running %s resulted in stderr output: %s", cmd, err)
