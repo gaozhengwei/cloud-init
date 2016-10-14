@@ -183,6 +183,7 @@ class Renderer(renderer.Renderer):
         ('USERCTL', False),
         ('NM_CONTROLLED', False),
         ('BOOTPROTO', 'none'),
+        ('PEERDNS', 'no'),
     ])
 
     # If these keys exist, then there values will be used to form
